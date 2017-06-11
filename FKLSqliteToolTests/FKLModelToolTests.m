@@ -1,19 +1,21 @@
 //
-//  FKLSqliteToolTests.m
-//  FKLSqliteToolTests
+//  FKLModelToolTests.m
+//  FKLSqliteTool
 //
 //  Created by kun on 2017/6/11.
 //  Copyright © 2017年 kun. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "FKLSqliteTool.h"
+#import "FKLModelTool.h"
+#import "FKLStu.h"
+#import "FKLSqliteModelTool.h"
 
-@interface FKLSqliteToolTests : XCTestCase
+@interface FKLModelToolTests : XCTestCase
 
 @end
 
-@implementation FKLSqliteToolTests
+@implementation FKLModelToolTests
 
 - (void)setUp {
     [super setUp];
@@ -25,16 +27,9 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    NSString *sql = @"create table if not exists t_stu(id integer primary key autoincrement, name text not null, age integer, score real)";
-    BOOL result = [FKLSqliteTool deal:sql uid:nil];
-    XCTAssertEqual(result, YES);
-}
-
-- (void)testQuery {
-    NSString *sql = @"select * from t_stu";
-    NSMutableArray *result = [FKLSqliteTool querySql:sql uid:nil];
-    NSLog(@"%@", result);
+- (void)testIvarNameType {
+    NSString *str = [FKLModelTool columnNameAndTypesStr:[FKLStu class]];
+    NSLog(@"%@", str);
 }
 
 - (void)testPerformanceExample {

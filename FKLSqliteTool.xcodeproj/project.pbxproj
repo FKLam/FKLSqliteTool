@@ -15,6 +15,12 @@
 		BCE5E9621EED6EDC0025C97F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCE5E9601EED6EDC0025C97F /* LaunchScreen.storyboard */; };
 		BCE5E96D1EED6EDC0025C97F /* FKLSqliteToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E96C1EED6EDC0025C97F /* FKLSqliteToolTests.m */; };
 		BCE5E9781EED6EDC0025C97F /* FKLSqliteToolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E9771EED6EDC0025C97F /* FKLSqliteToolUITests.m */; };
+		BCE5E9881EED6FE10025C97F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCE5E9871EED6FE10025C97F /* libsqlite3.0.tbd */; };
+		BCE5E98B1EED6FFC0025C97F /* FKLSqliteTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E98A1EED6FFC0025C97F /* FKLSqliteTool.m */; };
+		BCE5E98E1EED84A80025C97F /* FKLStu.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E98D1EED84A80025C97F /* FKLStu.m */; };
+		BCE5E9911EED852F0025C97F /* FKLSqliteModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E9901EED852F0025C97F /* FKLSqliteModelTool.m */; };
+		BCE5E9941EED868E0025C97F /* FKLModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E9931EED868E0025C97F /* FKLModelTool.m */; };
+		BCE5E9961EED89050025C97F /* FKLModelToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E9951EED89050025C97F /* FKLModelToolTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,17 @@
 		BCE5E9731EED6EDC0025C97F /* FKLSqliteToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FKLSqliteToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE5E9771EED6EDC0025C97F /* FKLSqliteToolUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKLSqliteToolUITests.m; sourceTree = "<group>"; };
 		BCE5E9791EED6EDC0025C97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCE5E9871EED6FE10025C97F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		BCE5E9891EED6FFC0025C97F /* FKLSqliteTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKLSqliteTool.h; sourceTree = "<group>"; };
+		BCE5E98A1EED6FFC0025C97F /* FKLSqliteTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKLSqliteTool.m; sourceTree = "<group>"; };
+		BCE5E98C1EED84A80025C97F /* FKLStu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKLStu.h; sourceTree = "<group>"; };
+		BCE5E98D1EED84A80025C97F /* FKLStu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKLStu.m; sourceTree = "<group>"; };
+		BCE5E98F1EED852F0025C97F /* FKLSqliteModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKLSqliteModelTool.h; sourceTree = "<group>"; };
+		BCE5E9901EED852F0025C97F /* FKLSqliteModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKLSqliteModelTool.m; sourceTree = "<group>"; };
+		BCE5E9921EED868E0025C97F /* FKLModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKLModelTool.h; sourceTree = "<group>"; };
+		BCE5E9931EED868E0025C97F /* FKLModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKLModelTool.m; sourceTree = "<group>"; };
+		BCE5E9951EED89050025C97F /* FKLModelToolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKLModelToolTests.m; sourceTree = "<group>"; };
+		BCE5E9971EED91500025C97F /* FKLModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKLModelProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE5E9881EED6FE10025C97F /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +103,7 @@
 				BCE5E96B1EED6EDC0025C97F /* FKLSqliteToolTests */,
 				BCE5E9761EED6EDC0025C97F /* FKLSqliteToolUITests */,
 				BCE5E9501EED6EDC0025C97F /* Products */,
+				BCE5E9861EED6FE10025C97F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +125,8 @@
 				BCE5E9561EED6EDC0025C97F /* AppDelegate.m */,
 				BCE5E9581EED6EDC0025C97F /* ViewController.h */,
 				BCE5E9591EED6EDC0025C97F /* ViewController.m */,
+				BCE5E98C1EED84A80025C97F /* FKLStu.h */,
+				BCE5E98D1EED84A80025C97F /* FKLStu.m */,
 				BCE5E95B1EED6EDC0025C97F /* Main.storyboard */,
 				BCE5E95E1EED6EDC0025C97F /* Assets.xcassets */,
 				BCE5E9601EED6EDC0025C97F /* LaunchScreen.storyboard */,
@@ -127,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				BCE5E96C1EED6EDC0025C97F /* FKLSqliteToolTests.m */,
+				BCE5E9951EED89050025C97F /* FKLModelToolTests.m */,
 				BCE5E96E1EED6EDC0025C97F /* Info.plist */,
 			);
 			path = FKLSqliteToolTests;
@@ -144,8 +166,23 @@
 		BCE5E9851EED6EE90025C97F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BCE5E9891EED6FFC0025C97F /* FKLSqliteTool.h */,
+				BCE5E98A1EED6FFC0025C97F /* FKLSqliteTool.m */,
+				BCE5E98F1EED852F0025C97F /* FKLSqliteModelTool.h */,
+				BCE5E9901EED852F0025C97F /* FKLSqliteModelTool.m */,
+				BCE5E9921EED868E0025C97F /* FKLModelTool.h */,
+				BCE5E9931EED868E0025C97F /* FKLModelTool.m */,
+				BCE5E9971EED91500025C97F /* FKLModelProtocol.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		BCE5E9861EED6FE10025C97F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCE5E9871EED6FE10025C97F /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,8 +319,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE5E95A1EED6EDC0025C97F /* ViewController.m in Sources */,
+				BCE5E9911EED852F0025C97F /* FKLSqliteModelTool.m in Sources */,
+				BCE5E9941EED868E0025C97F /* FKLModelTool.m in Sources */,
 				BCE5E9571EED6EDC0025C97F /* AppDelegate.m in Sources */,
 				BCE5E9541EED6EDC0025C97F /* main.m in Sources */,
+				BCE5E98E1EED84A80025C97F /* FKLStu.m in Sources */,
+				BCE5E98B1EED6FFC0025C97F /* FKLSqliteTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE5E96D1EED6EDC0025C97F /* FKLSqliteToolTests.m in Sources */,
+				BCE5E9961EED89050025C97F /* FKLModelToolTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +557,7 @@
 				BCE5E97E1EED6EDC0025C97F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCE5E97F1EED6EDC0025C97F /* Build configuration list for PBXNativeTarget "FKLSqliteToolTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +566,7 @@
 				BCE5E9811EED6EDC0025C97F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCE5E9821EED6EDC0025C97F /* Build configuration list for PBXNativeTarget "FKLSqliteToolUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +575,7 @@
 				BCE5E9841EED6EDC0025C97F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
