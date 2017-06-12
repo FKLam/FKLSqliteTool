@@ -43,4 +43,43 @@
     return ![modelNames isEqualToArray:tableNames];
 }
 
++ (BOOL)updateTable:(Class)cls uid:(NSString *)uid {
+    
+    NSString *tmpTableName = [FKLModelTool tmpTableName:cls];
+    NSString *tableName = [FKLModelTool tableName:cls];
+    
+    if ( ![cls respondsToSelector:@selector(primarykey)] ) {
+        return NO;
+    }
+    
+    NSMutableArray *execSql = [NSMutableArray array];
+    NSString *primaryKey = [cls primarykey];
+    
+    NSString *createTableSql = [NSString stringWithFormat:@"create table if not exists %@(%@ primary key(%@))", tmpTableName, [FKLModelTool columnNameAndTypesStr:cls], primaryKey];
+    [execSql addObject:createTableSql];
+    
+    NSString *insertPrimaryKeyData = [NSString stringWithFormat:@"insert into %@(%@) select %@ form %@;", tmpTableName, primaryKey, primaryKey, tableName];
+    [execSql addObject:insertPrimaryKeyData];
+    
+    NSArray *oldNames = [FKLTableTool tableSorteColumnNames:cls uid:uid];
+    NSArray *newNames = [FKLModelTool allTableSortedIvarNames:cls];
+    
+    for ( NSString *columnName in newNames ) {
+        if ( ![oldNames containsObject:columnName] ) {
+            continue;
+        }
+        
+        NSString *updateSql = [NSString stringWithFormat:@"update %@ set %@ = (select %@ form %@ where %@.%@ = %@.%@)", tmpTableName, columnName, columnName, tableName, tmpTableName, primaryKey, tableName, primaryKey];
+        [execSql addObject:updateSql];
+    }
+    
+    NSString *deleteOldTable = [NSString stringWithFormat:@"drop table if exists %@", tableName];
+    [execSql addObject:deleteOldTable];
+    
+    NSString *renameTableName = [NSString stringWithFormat:@"alter table %@ rename to %@", tmpTableName, tableName];
+    [execSql addObject:renameTableName];
+    
+    return [FKLSqliteTool dealSqls:execSql uid:uid];
+}
+
 @end

@@ -12,6 +12,8 @@
 
 + (NSString *)tableName:(Class)cls;
 
++ (NSString *)tmpTableName:(Class)cls;
+
 /**
  *  所有的成员变量，以及成员变量对应的类型
  */

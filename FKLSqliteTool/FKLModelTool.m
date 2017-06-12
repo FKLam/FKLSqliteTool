@@ -16,6 +16,10 @@
     return NSStringFromClass(cls);
 }
 
++ (NSString *)tmpTableName:(Class)cls {
+    return [NSStringFromClass(cls) stringByAppendingString:@"_tmp"];
+}
+
 + (NSMutableDictionary *)classIvarNameTypeDict:(Class)cls {
     NSMutableDictionary *nameTypeDict = [NSMutableDictionary dictionary];
     NSArray *ignoreNames = nil;

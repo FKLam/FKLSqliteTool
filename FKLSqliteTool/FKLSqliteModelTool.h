@@ -16,4 +16,6 @@
 
 + (BOOL)isTableRequiredUpdate:(Class)cls uid:(NSString *)uid;
 
++ (BOOL)updateTable:(Class)cls uid:(NSString *)uid;
+
 @end
