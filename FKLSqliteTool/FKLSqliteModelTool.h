@@ -14,4 +14,6 @@
 
 + (void)saveModel:(id)model;
 
++ (BOOL)isTableRequiredUpdate:(Class)cls uid:(NSString *)uid;
+
 @end

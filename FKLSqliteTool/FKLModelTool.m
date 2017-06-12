@@ -66,6 +66,15 @@
     return [result componentsJoinedByString:@","];
 }
 
++ (NSArray *)allTableSortedIvarNames:(Class)cls {
+    NSDictionary *dict = [self classIvarNameTypeDict:cls];
+    NSArray *keys = dict.allKeys;
+    keys = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
+    return keys;
+}
+
 #pragma mark - private methods
 
 + (NSDictionary *)ocTypeToSqliteTypeDict {

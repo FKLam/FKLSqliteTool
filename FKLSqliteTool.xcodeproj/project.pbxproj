@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC92B2591EEEBA2D00A9FD50 /* FKLTableTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BC92B2581EEEBA2D00A9FD50 /* FKLTableTool.m */; };
 		BCE5E9541EED6EDC0025C97F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E9531EED6EDC0025C97F /* main.m */; };
 		BCE5E9571EED6EDC0025C97F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E9561EED6EDC0025C97F /* AppDelegate.m */; };
 		BCE5E95A1EED6EDC0025C97F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE5E9591EED6EDC0025C97F /* ViewController.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC92B2571EEEBA2D00A9FD50 /* FKLTableTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKLTableTool.h; sourceTree = "<group>"; };
+		BC92B2581EEEBA2D00A9FD50 /* FKLTableTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKLTableTool.m; sourceTree = "<group>"; };
 		BCE5E94F1EED6EDC0025C97F /* FKLSqliteTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FKLSqliteTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE5E9531EED6EDC0025C97F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BCE5E9551EED6EDC0025C97F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				BCE5E9921EED868E0025C97F /* FKLModelTool.h */,
 				BCE5E9931EED868E0025C97F /* FKLModelTool.m */,
 				BCE5E9971EED91500025C97F /* FKLModelProtocol.h */,
+				BC92B2571EEEBA2D00A9FD50 /* FKLTableTool.h */,
+				BC92B2581EEEBA2D00A9FD50 /* FKLTableTool.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				BCE5E9911EED852F0025C97F /* FKLSqliteModelTool.m in Sources */,
 				BCE5E9941EED868E0025C97F /* FKLModelTool.m in Sources */,
 				BCE5E9571EED6EDC0025C97F /* AppDelegate.m in Sources */,
+				BC92B2591EEEBA2D00A9FD50 /* FKLTableTool.m in Sources */,
 				BCE5E9541EED6EDC0025C97F /* main.m in Sources */,
 				BCE5E98E1EED84A80025C97F /* FKLStu.m in Sources */,
 				BCE5E98B1EED6FFC0025C97F /* FKLSqliteTool.m in Sources */,

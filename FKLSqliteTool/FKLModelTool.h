@@ -27,4 +27,6 @@
  */
 + (NSString *)columnNameAndTypesStr:(Class)cls;
 
++ (NSArray *)allTableSortedIvarNames:(Class)cls;
+
 @end

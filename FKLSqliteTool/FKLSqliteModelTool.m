@@ -10,6 +10,7 @@
 #import "FKLModelTool.h"
 #import "FKLModelProtocol.h"
 #import "FKLSqliteTool.h"
+#import "FKLTableTool.h"
 
 @interface FKLSqliteModelTool ()
 
@@ -34,6 +35,12 @@
     NSString *createTableSql = [NSString stringWithFormat:@"create table if not exists %@(%@, primary key(%@))", tableName, [FKLModelTool columnNameAndTypesStr:cls], primaryKey];
     
     return [FKLSqliteTool deal:createTableSql uid:uid];
+}
+
++ (BOOL)isTableRequiredUpdate:(Class)cls uid:(NSString *)uid {
+    NSArray *modelNames = [FKLModelTool allTableSortedIvarNames:cls];
+    NSArray *tableNames = [FKLTableTool tableSorteColumnNames:cls uid:uid];
+    return ![modelNames isEqualToArray:tableNames];
 }
 
 @end
