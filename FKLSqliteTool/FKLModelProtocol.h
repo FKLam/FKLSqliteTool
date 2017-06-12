@@ -10,6 +10,10 @@
 
 @protocol FKLModelProtocol <NSObject>
 
+@required
 + (NSString *)primarykey;
+
+@optional
++ (NSArray *)ignoreColumnNames;
 
 @end

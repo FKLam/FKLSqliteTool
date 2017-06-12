@@ -8,6 +8,7 @@
 
 #import "FKLModelTool.h"
 #import <objc/runtime.h>
+#import "FKLModelProtocol.h"
 
 @implementation FKLModelTool
 
@@ -17,6 +18,10 @@
 
 + (NSMutableDictionary *)classIvarNameTypeDict:(Class)cls {
     NSMutableDictionary *nameTypeDict = [NSMutableDictionary dictionary];
+    NSArray *ignoreNames = nil;
+    if ( [cls respondsToSelector:@selector(ignoreColumnNames)] ) {
+        ignoreNames = [cls ignoreColumnNames];
+    }
     // 获取类中，所有成员变量和类型
     unsigned int outCount = 0;
     Ivar *varList = class_copyIvarList(cls, &outCount);
@@ -27,6 +32,11 @@
         if ( [ivarName hasPrefix:@"_"] ) {
             ivarName = [ivarName substringFromIndex:1];
         }
+        
+        if (ignoreNames && [ignoreNames containsObject:ivarName] ) {
+            continue;
+        }
+        
         // 获取成员变量类型
         NSString *type = [NSString stringWithUTF8String:ivar_getTypeEncoding(ivar)];
         type = [type stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"@\""]];
