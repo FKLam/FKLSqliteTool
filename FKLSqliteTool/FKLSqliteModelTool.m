@@ -155,4 +155,42 @@
     return [FKLSqliteTool deal:execSql uid:uid];
 }
 
++ (BOOL)deleteModel:(id)model uid:(NSString *)uid {
+    Class cls = [model class];
+    NSString *tableName = [FKLModelTool tableName:cls];
+    if ( ![cls respondsToSelector:@selector(primarykey)] ) {
+        return NO;
+    }
+    NSString *primaryKey = [cls primarykey];
+    id primaryValue = [model valueForKey:primaryKey];
+    NSString *deleteSql = [NSString stringWithFormat:@"delete from %@ where %@ = '%@'", tableName, primaryKey, primaryValue];
+    return [FKLSqliteTool deal:deleteSql uid:uid];
+}
+
++ (BOOL)deleteModel:(Class)cls whereStr:(NSString *)whereStr uid:(NSString *)uid {
+    NSString *tableName = [FKLModelTool tableName:cls];
+    NSString *deleteSql = [NSString stringWithFormat:@"delete from %@", tableName];
+    if ( whereStr && 0 < whereStr.length ) {
+        deleteSql = [deleteSql stringByAppendingString:[NSString stringWithFormat:@" where %@", whereStr]];
+    }
+    return [FKLSqliteTool deal:deleteSql uid:uid];
+}
+
++ (BOOL)deleteModel:(Class)cls columnName:(NSString *)columnName relation:(ColumnNameToValueRelationType)relation value:(id)value uid:(NSString *)uid {
+    NSString *tableName = [FKLModelTool tableName:cls];
+    NSString *deleteSql = [NSString stringWithFormat:@"delete from %@ where %@ %@ %@", tableName, columnName, self.ColumnNameToValueRelationTypeDict[@(relation)], value];
+    
+    return [FKLSqliteTool deal:deleteSql uid:uid];
+}
+
++ (NSDictionary *)ColumnNameToValueRelationTypeDict {
+    return @{
+             @(ColumnNameToValueRelationTypeMore) : @">",
+             @(ColumnNameToValueRelationTypeLess) : @"<",
+             @(ColumnNameToValueRelationTypeEqual) : @"=",
+             @(ColumnNameToValueRelationTypeMoreEqual) : @">=",
+             @(ColumnNameToValueRelationTypeLessEqual) : @"<=",
+             };
+}
+
 @end
