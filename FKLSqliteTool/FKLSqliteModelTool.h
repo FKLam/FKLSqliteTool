@@ -12,7 +12,7 @@
 
 + (BOOL)createTable:(Class)cls uid:(NSString *)uid;
 
-+ (void)saveModel:(id)model;
++ (BOOL)saveModel:(id)model uid:(NSString *)uid;
 
 + (BOOL)isTableRequiredUpdate:(Class)cls uid:(NSString *)uid;
 

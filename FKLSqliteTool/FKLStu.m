@@ -20,4 +20,8 @@
     return nil;
 }
 
++ (NSDictionary *)newNameToOldNameDict {
+    return @{@"age" : @"age2"};
+}
+
 @end

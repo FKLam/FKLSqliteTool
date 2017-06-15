@@ -41,4 +41,13 @@
     return names;
 }
 
++ (BOOL)isTableExists:(Class)cls uid:(NSString *)uid {
+    NSString *tableName = [FKLModelTool tableName:cls];
+    NSString *queryCreateSqlStr = [NSString stringWithFormat:@"select sql from sqlite_master where type = 'table' and name = '%@'", tableName];
+    
+    NSMutableArray *result = [FKLSqliteTool querySql:queryCreateSqlStr uid:uid];
+    
+    return result.count > 0;
+}
+
 @end

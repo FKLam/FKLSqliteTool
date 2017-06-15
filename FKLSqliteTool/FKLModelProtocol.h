@@ -16,4 +16,11 @@
 @optional
 + (NSArray *)ignoreColumnNames;
 
+/**
+ *  新字段名称->旧字段名称的映射表格
+ *
+ *  @return 映射表格
+ */
++ (NSDictionary *)newNameToOldNameDict;
+
 @end
