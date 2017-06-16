@@ -130,6 +130,15 @@
     NSMutableArray *values = [NSMutableArray array];
     for ( NSString *columnName in columnNames ) {
         id value = [model valueForKey:columnName];
+        
+        if ( [value isKindOfClass:[NSArray class]] ||
+            [value isKindOfClass:[NSDictionary class]] ) {
+            // 在这里，把字典或者数组处理成为一个字符串，保存到数据库里
+            NSData *data = [NSJSONSerialization dataWithJSONObject:value options:NSJSONWritingPrettyPrinted error:nil];
+            // data -> NSString
+            value = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+        
         [values addObject:value];
     }
     
@@ -202,9 +211,30 @@
 
 + (NSArray *)parseResults:(NSArray<NSDictionary *> *)results whitClass:(Class)cls {
     NSMutableArray *models = [NSMutableArray array];
+    NSDictionary *nameTypeDict = [FKLModelTool classIvarNameTypeDict:cls];
     for ( NSDictionary *modelDict in results ) {
         id model = [[cls alloc] init];
-        [model setValuesForKeysWithDictionary:modelDict];
+        
+        [modelDict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            NSString *type = nameTypeDict[key];
+//            NSArray
+//            NSMutableArray
+//            NSDictionary
+//            NSMutableDictionary
+            id resultValue = obj;
+            if ( [type isEqualToString:@"NSArray"] ||
+                [type isEqualToString:@"NSDictionary"] ) {
+                // 字符串
+                NSData *data = [obj dataUsingEncoding:NSUTF8StringEncoding];
+                resultValue = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            } else if ( [type isEqualToString:@"NSMutableArray"] ||
+                       [type isEqualToString:@"NSMutableDictionary"] ) {
+                // 字符串
+                NSData *data = [obj dataUsingEncoding:NSUTF8StringEncoding];
+                resultValue = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            }
+            [model setValue:resultValue forKey:key];
+        }];
         [models addObject:model];
     }
     return models;
