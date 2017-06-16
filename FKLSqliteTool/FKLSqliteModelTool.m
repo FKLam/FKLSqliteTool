@@ -183,6 +183,38 @@
     return [FKLSqliteTool deal:deleteSql uid:uid];
 }
 
++ (NSArray *)queryAllModels:(Class)cls uid:(NSString *)uid {
+    NSString *tableName = [FKLModelTool tableName:cls];
+    NSString *sql = [NSString stringWithFormat:@"select * from %@", tableName];
+    NSArray<NSDictionary *> *results = [FKLSqliteTool querySql:sql uid:uid];
+    return [self parseResults:results whitClass:cls];
+}
+
++ (NSArray *)queryModels:(Class)cls columnName:(NSString *)columnName relation:(ColumnNameToValueRelationType)relation value:(id)value uid:(NSString *)uid {
+    NSString *tableName = [FKLModelTool tableName:cls];
+    // 拼接sql语句
+    NSString *sql = [NSString stringWithFormat:@"select * from %@ where %@ %@ '%@'", tableName, columnName, self.ColumnNameToValueRelationTypeDict[@(relation)], value];
+    // 查询结果集
+    NSArray<NSDictionary *> *results = [FKLSqliteTool querySql:sql uid:uid];
+    // 处理结果集
+    return [self parseResults:results whitClass:cls];
+}
+
++ (NSArray *)parseResults:(NSArray<NSDictionary *> *)results whitClass:(Class)cls {
+    NSMutableArray *models = [NSMutableArray array];
+    for ( NSDictionary *modelDict in results ) {
+        id model = [[cls alloc] init];
+        [model setValuesForKeysWithDictionary:modelDict];
+        [models addObject:model];
+    }
+    return models;
+}
+
++ (NSArray *)queryModels:(Class)cls WithSql:(NSString *)sql uid:(NSString *)uid {
+    NSArray<NSDictionary *> *results = [FKLSqliteTool querySql:sql uid:uid];
+    return [self parseResults:results whitClass:cls];
+}
+
 + (NSDictionary *)ColumnNameToValueRelationTypeDict {
     return @{
              @(ColumnNameToValueRelationTypeMore) : @">",
